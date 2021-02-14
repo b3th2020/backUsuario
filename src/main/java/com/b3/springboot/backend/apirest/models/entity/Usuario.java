@@ -9,20 +9,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
-import javax.persistence.Table;
+//import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
 
 @Validated
 @Entity
-@Table(name="clientes")
-public class Cliente implements Serializable{
+//@Table(name="usuarios")
+@Document(collection = "issues")
+public class Usuario implements Serializable{
 
 	/**
 	 * Number serializable
@@ -34,7 +34,6 @@ public class Cliente implements Serializable{
 	private long id;
 	
 	@NotEmpty(message = "no puede estar vacio")
-//	@Size(min=4, max=12, message = "el tamaño tiene que estar entre 4 y 12")
 	@Column(nullable = false)
 	private String nombre;
 	
